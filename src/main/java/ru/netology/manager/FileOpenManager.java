@@ -55,10 +55,14 @@ public class FileOpenManager {
     public void deleteRich(String extension, String AppName){
         HashSet<String> AppNames = fileManager.get(extension.toLowerCase());
         for (String tmp: AppNames){
-            if (tmp == AppName){
+            if (tmp.equals(AppName)){
                 AppNames.remove(AppName);
             }
         }
         fileManager.replace(extension, AppNames);
+    }
+
+    public boolean containsExtension(String extension){
+        return fileManager.containsKey(extension);
     }
 }
