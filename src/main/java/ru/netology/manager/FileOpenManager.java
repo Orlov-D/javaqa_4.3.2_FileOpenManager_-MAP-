@@ -39,13 +39,13 @@ public class FileOpenManager {
 
     public Set<String> getAppsWithExtension() {
         Set<String> extensions = this.getExtensionWithApps();
-        Set<String> AppsWithExtension = new HashSet<>();
+        Set<String> appsWithExtension = new HashSet<>();
         for (String extension : extensions) {
-            if (fileManager.get(extension).size() != 0) {
-                AppsWithExtension.addAll(fileManager.get(extension));
+            if (!fileManager.get(extension).isEmpty()) {
+                appsWithExtension.addAll(fileManager.get(extension));
             }
         }
-        return AppsWithExtension;
+        return appsWithExtension;
     }
 
     public void delete(String extension) {
